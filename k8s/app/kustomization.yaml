@@ -1,0 +1,14 @@
+kind: Kustomization
+namespace: unifi
+
+commonLabels:
+  app.kubernetes.io/name: unifi
+  app.kubernetes.io/part-of: unifi
+
+
+resources:
+  - pvc.yaml
+  - namespace.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml

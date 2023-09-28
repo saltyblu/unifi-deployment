@@ -1,0 +1,43 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: unifi
+  namespace: unifi
+spec:
+  ports:
+    - name: https
+      port: 8443
+      appProtocol: https
+      protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: unifi-controller
+  namespace: unifi
+spec:
+  type: LoadBalancer
+  ports:
+    #- name: device-comm
+    #  port: 8080
+    #  protocol: TCP
+    - name: stun
+      port: 3478
+      protocol: UDP
+    - name: secure-redirect
+      port: 8843
+      protocol: TCP
+    - name: http-redirect
+      port: 8880
+      protocol: TCP
+    - name: speedtest
+      port: 6789
+      protocol: TCP
+    - name: unifi-disc
+      port: 10001
+      protocol: UDP
+    - name: unifi-disc-l2
+      port: 1900
+      protocol: UDP
