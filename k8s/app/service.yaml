@@ -20,9 +20,9 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    #- name: device-comm
-    #  port: 8080
-    #  protocol: TCP
+    - name: device-comm
+      port: 8080
+      protocol: TCP
     - name: stun
       port: 3478
       protocol: UDP
