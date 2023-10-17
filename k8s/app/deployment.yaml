@@ -20,7 +20,7 @@ spec:
           persistentVolumeClaim:
             claimName: unifi
       containers:
-        - image: linuxserver/unifi-controller:7.5.176 #{"$imagepolicy": "flux-system:unifi"}
+        - image: linuxserver/unifi-controller:7.5.187 #{"$imagepolicy": "flux-system:unifi"}
           name: unifi-controller
           volumeMounts:
             - name: unifi
