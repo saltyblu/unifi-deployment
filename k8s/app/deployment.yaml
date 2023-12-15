@@ -4,7 +4,6 @@ metadata:
   labels:
     app: unifi
   name: unifi
-  namespace: unifi
 spec:
   replicas: 1
   selector:
@@ -15,16 +14,33 @@ spec:
       labels:
         app: unifi
     spec:
-      volumes:
-        - name: unifi
-          persistentVolumeClaim:
-            claimName: unifi
+      #volumes:
+      #  - name: unifi
+      #    persistentVolumeClaim:
+      #      claimName: unifi
       containers:
-        - image: linuxserver/unifi-controller:7.5.176 #{"$imagepolicy": "flux-system:unifi"}
+        - image: lscr.io/linuxserver/unifi-network-application:latest #{"$imagepolicy": "flux-system:unifi"}
           name: unifi-controller
-          volumeMounts:
-            - name: unifi
-              mountPath: /config
+          #volumeMounts:
+            #- name: unifi
+            #  mountPath: /config
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "Etc/UTC"
+            - name: MONGO_USER
+              value: "unifi"
+            - name: MONGO_PASS
+              value: "unifi"
+            - name: MONGO_HOST
+              value: "unifi-db"
+            - name: MONGO_PORT
+              value: "27017"
+            - name: MONGO_DBNAME
+              value: "unifi"
           ports:
             - name: device-comm
               containerPort: 8080

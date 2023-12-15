@@ -3,3 +3,4 @@ namespace: unifi
 
 resources:
   - ../../app
+  - ../../mongodb

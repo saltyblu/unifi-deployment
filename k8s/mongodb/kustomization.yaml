@@ -1,0 +1,15 @@
+kind: Kustomization
+namespace: unifi
+
+commonLabels:
+  app.kubernetes.io/name: unifi-db
+  app.kubernetes.io/part-of: unifi
+
+
+resources:
+  - mongodb-client.yaml
+  - mongodb-deployment.yaml
+  - mongodb-nodeport-svc.yaml
+  - mongodb-pvc.yaml
+  - mongodb-pv.yaml
+  - mongodb-secrets.yaml
