@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-init
+data:
+  init-mongo.sh: |
+    #!/bin/sh
+
+    if which mongosh > /dev/null 2>&1; then
+      mongo_init_bin='mongosh'
+    else
+      mongo_init_bin='mongo'
+    fi
+    "${mongo_init_bin}" <<EOF
+    use unifi
+    db.auth("${MONGO_INITDB_ROOT_USERNAME}", "${MONGO_INITDB_ROOT_PASSWORD}")
+    db.createUser({
+      user: "${MONGO_ADD_USER_NAME}",
+      pwd: "${MONGO_ADD_USER_PASSWORD}",
+      roles: [
+        { db: "${mongo_add_user_db}", role: "dbowner" },
+        { db: "${mongo_add_user_db}", role: "readwrite" },
+        { db: "${mongo_add_user_db}_stat", role: "readwrite" },
+        { db: "${mongo_add_user_db}_stat", role: "dbowner" }
+      ]
+    })
+    EOF
