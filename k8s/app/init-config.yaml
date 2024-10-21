@@ -19,10 +19,10 @@ data:
       user: "${MONGO_ADD_USER_NAME}",
       pwd: "${MONGO_ADD_USER_PASSWORD}",
       roles: [
-        { db: "${mongo_add_user_db}", role: "dbowner" },
-        { db: "${mongo_add_user_db}", role: "readwrite" },
-        { db: "${mongo_add_user_db}_stat", role: "readwrite" },
-        { db: "${mongo_add_user_db}_stat", role: "dbowner" }
+        { db: "${MONGODB_ADD_USER_DB}", role: "dbowner" },
+        { db: "${MONGODB_ADD_USER_DB}", role: "readwrite" },
+        { db: "${MONGODB_ADD_USER_DB}_stat", role: "readwrite" },
+        { db: "${MONGODB_ADD_USER_DB}_stat", role: "dbowner" }
       ]
     })
     EOF
