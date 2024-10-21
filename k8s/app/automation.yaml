@@ -4,7 +4,7 @@ kind: ImageRepository
 metadata:
   name: unifi
 spec:
-  image: linuxserver/unifi-network-application
+  image: jacobalberty/unifi
   interval: 4h0m
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
