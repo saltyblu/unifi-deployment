@@ -24,7 +24,7 @@ spec:
             path: /opt/data/unifi/mongodb/data
             type: Directory
         - name: init
-          configMap: 
+          configMap:
             name: mongo-init
       containers:
         - image: linuxserver/unifi-network-application:8.5.6 #{"$imagepolicy": "unifi:unifi"}

@@ -13,16 +13,17 @@ data:
       mongo_init_bin='mongo'
     fi
     "${mongo_init_bin}" <<EOF
-    use unifi
+    use admin
     db.auth("${MONGO_INITDB_ROOT_USERNAME}", "${MONGO_INITDB_ROOT_PASSWORD}")
+    use unifi
     db.createUser({
       user: "${MONGO_ADD_USER_NAME}",
       pwd: "${MONGO_ADD_USER_PASSWORD}",
       roles: [
-        { db: "${MONGODB_ADD_USER_DB}", role: "dbowner" },
-        { db: "${MONGODB_ADD_USER_DB}", role: "readwrite" },
-        { db: "${MONGODB_ADD_USER_DB}_stat", role: "readwrite" },
-        { db: "${MONGODB_ADD_USER_DB}_stat", role: "dbowner" }
+        { db: "unifi", role: "readWrite" },
+        { db: "unifi_stat", role: "readWrite" },
+        { db: "unifi", role: "dbOwner" },
+        { db: "unifi_stat", role: "dbOwner" }
       ]
     })
     EOF
