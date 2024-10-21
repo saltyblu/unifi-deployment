@@ -1,5 +1,6 @@
-kind: Deployment
+---
 apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: unifi-controller
 spec:
@@ -20,7 +21,7 @@ spec:
             type: Directory
       containers:
         - name: unifi-controller
-          image: 'jacobalberty/unifi:6.2.25'
+          image: jacobalberty/unifi:v8.5.6 # {"$imagepolicy": "unifi:unifi"}
           ports:
             - containerPort: 3478
               protocol: UDP
