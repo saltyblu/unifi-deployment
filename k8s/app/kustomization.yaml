@@ -10,5 +10,5 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
-  - init-config.yaml
-  - automation.yaml
+  #- init-config.yaml
+  #- automation.yaml
