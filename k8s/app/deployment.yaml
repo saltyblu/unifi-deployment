@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: unifi-controller
+  name: unifi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: unifi-controller
+      name: unifi
   template:
     metadata:
-      name: unifi-controller
+      name: unifi
       labels:
-        name: unifi-controller
+        name: unifi
     spec:
       volumes:
         - name: unifi
@@ -19,7 +19,7 @@ spec:
             path: /opt/data/unifi/controller
             type: Directory
       containers:
-        - name: unifi-controller
+        - name: unifi
           image: jacobalberty/unifi:v8.6.9 # {"$imagepolicy": "unifi:unifi"}
           ports:
             - containerPort: 3478

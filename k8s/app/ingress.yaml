@@ -6,6 +6,8 @@ metadata:
   namespace: unifi
   annotations:
     kubernetes.io/ingress.class: "traefik"
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/service.serversscheme: "https"
 spec:
   rules:
     - host: unifi.fritz.box
