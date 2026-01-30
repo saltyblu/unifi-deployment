@@ -9,7 +9,7 @@ metadata:
 spec:
   selector:
     app.kubernetes.io/name: unifi
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - name: https
       port: 8443

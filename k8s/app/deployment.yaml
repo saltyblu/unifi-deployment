@@ -13,6 +13,8 @@ spec:
       labels:
         name: unifi
     spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       volumes:
         - name: unifi
           hostPath:
