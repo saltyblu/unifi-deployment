@@ -20,7 +20,7 @@ spec:
             type: Directory
       containers:
         - name: unifi
-          image: jacobalberty/unifi:v8.6.9 # {"$imagepolicy": "unifi:unifi"}
+          image: jacobalberty/unifi:v10.0.162 # {"$imagepolicy": "unifi:unifi"}
           ports:
             - containerPort: 3478
               protocol: UDP
